@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <Nav/>
+      <Nav/>
       <h1 class="title">Shop All</h1>
       <div class="shop-items">
         <ShopItem
@@ -13,7 +13,7 @@
       <div>
         <ShoppingCart :cartItems="cartItems" />
       </div>
-     <Footer/>
+      <Footer/>
     </div>
   </template>
   
@@ -23,29 +23,19 @@
   import ShoppingCart from './ShoppingCart.vue';
   import Nav from "./Nav.vue";
   
-  
   export default {
     components: {
       ShopItem,
       ShoppingCart,
       Nav,
       Footer
-   
-     
     },
     data() {
       return {
         items: [
           { id: 2, name: 'Relaxed Boyfriend Tee', price: 30.00, image: 'images/1.png' },
           { id: 3, name: 'Linen A-Line Skirt', price: 35.00, image: 'images/2.png' },
-          { id: 3, name: 'Linen A-Line Skirt', price: 35.00, image: 'images/3.png' },
-          { id: 3, name: 'Linen A-Line Skirt', price: 35.00, image: 'images/1.png' },
-          { id: 3, name: 'Linen A-Line Skirt', price: 35.00, image: 'images/3.png' },
-          { id: 3, name: 'Linen A-Line Skirt', price: 35.00, image: 'images/2.png' },
-          { id: 3, name: 'Linen A-Line Skirt', price: 35.00, image: 'images/2.png' },
-          { id: 3, name: 'Linen A-Line Skirt', price: 35.00, image: 'images/2.png' },
-
-
+          { id: 4, name: 'Linen A-Line Skirt', price: 35.00, image: 'images/3.png' },
           // Add other items here
         ],
         cartItems: [],
@@ -63,21 +53,21 @@
   </script>
   
   <style>
-  img{
+  img {
     max-width: 100%;
     height: auto;
   }
-  .title{
+  .title {
     text-align: center;
   }
   
   @media (min-width: 64rem) {
-   .shop-items{
-    width: 80%;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-   }
+    .shop-items {
+      width: 80%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
   }
   </style>
   

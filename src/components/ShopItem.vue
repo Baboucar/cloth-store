@@ -1,6 +1,6 @@
 <template>
     <div class="shop-item">
-      <img :src="item.image" :alt="item.name" class="item-image" />
+      <v-lazy-image :src="item.image" :alt="item.name" class="item-image" />
       <h3>{{ item.name }}</h3>
       <p class="price">${{ item.price }}</p>
       <button @click="addToCart">Add to Cart</button>
@@ -8,7 +8,12 @@
   </template>
   
   <script>
+  import { VLazyImage } from 'v-lazy-image';
+  
   export default {
+    components: {
+      VLazyImage
+    },
     props: {
       item: Object,
     },
@@ -26,22 +31,19 @@
     height: auto;
     display: block;
     margin: 1rem auto;
-    
   }
   .shop-item:hover {
-    transition: ease-in .5s;
-  
+    transition: ease-in 0.5s;
   }
-  .price{
-    color: #AD6342;
+  .price {
+    color: #ad6342;
   }
   .item-image {
-    
-   
-    
+    width: 100%;
+    height: auto;
   }
   button {
-    background-color: #AD6342;
+    background-color: #ad6342;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -53,6 +55,5 @@
   button:hover {
     background-color: #d55215;
   }
-  
   </style>
   
