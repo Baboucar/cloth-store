@@ -42,11 +42,11 @@
         </section>
         <section>
             <div class="slider-container">
-                <Carousel :autoplay="2000" :wrap-around="true">
+                <Carousel v-bind="settings" :breakpoints="breakpoints" :autoplay="10000" :wrap-around="true">
                     <Slide v-for="slide in slides" :key="slide">
-                      <h2 class="carousel__item">{{ slide.title }}</h2>
-                      
-                        <div class="carousel__item">{{  slide.text}}</div>
+                      <h2 class="slide-title">{{ slide.title }} </h2>
+                       
+                        <div class="slide-desc">{{  slide.text}}</div>
                     </Slide>
                 
                     <template #addons>
@@ -56,18 +56,24 @@
                 
             </div>
         </section>
+        <Footer/>
     </div>
 </template>
 <script>
 import Nav from "./Nav.vue";
-import { Carousel, Slide } from 'vue3-carousel';
+import { Carousel, Navigation, Slide, Pagination } from 'vue3-carousel';
+import Footer from './Footer.vue';
+
 import 'vue3-carousel/dist/carousel.css';
 
 export default {
     components:{
         Nav,
-        Carousel,
-        Slide,
+        Pagination,
+       Carousel,
+       Slide,
+       Navigation,
+       Footer
     },
     data () {
         return {
@@ -96,6 +102,9 @@ export default {
     justify-content: center;
     align-items: center;
     padding: 20px;
+}
+.carousel__slide {
+    display: block;
 }
 .arrival-title{
     margin-top: 3.5rem;
@@ -236,6 +245,19 @@ img{
     }
     .card_desc{
         text-align: center;
+    }
+
+    .slide-desc{
+        width: 40%;
+        margin: 0 auto;
+        padding-top: 2rem;
+        font-size: 1.2rem;
+        line-height: 2;
+        
+    }
+    .slide-title{
+        font-weight: bold;
+        font-size: 1.8rem;
     }
 }
 
