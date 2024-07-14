@@ -5,7 +5,7 @@
             <p class="words">Beautiful. <span class="down">Elegant. Stylish</span></p>
         </section>
         <section class="shop">
-            <router-link to="" class="shop__button">Shop Now</router-link>
+            <router-link to="/shop" class="shop__button">Shop Now</router-link>
         </section>
         <section class="slider">
             <router-link to=""><img class="hov" src="/images/slide1.png" alt=""></router-link>
