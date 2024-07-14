@@ -142,6 +142,7 @@
       margin-top: 1rem;
       margin-left: 25rem;
       background: #FFFFFF;
+      padding: 1rem;
     }
     .nav a {
       display: inline;
