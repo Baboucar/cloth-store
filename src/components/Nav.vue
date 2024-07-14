@@ -2,7 +2,7 @@
     <div class="flex-desktop">
       <header class="header">
         <div class="logo">
-          Jobis
+         <router-link class="logo" to="/"> Jobis</router-link>
         </div>
         <div class="menu-button" @click="toggleMenu">
           <div class="line"></div>
@@ -10,11 +10,11 @@
           <div class="line"></div>
         </div>
       </header>
-      <nav class="nav" v-if="isMenuVisible || isWideScreen">
-        <router-link to="" active-class="active">Home</router-link>
-        <router-link to="" active-class="active">Shop</router-link>
-        <router-link to="" active-class="active">About</router-link>
-        <router-link to="" active-class="active">Contact</router-link>
+      <nav class="nav" :class="{ fixed: isFixed }" v-if="isMenuVisible || isWideScreen">
+        <router-link to="/" active-class="active-link">Home</router-link>
+        <router-link to="/shop" active-class="active-link">Shop</router-link>
+        <router-link to="" active-class="active-link">About</router-link>
+        <router-link to="" active-class="active-link">Contact</router-link>
       </nav>
     </div>
   </template>
@@ -26,6 +26,7 @@
     setup() {
       const isMenuVisible = ref(false);
       const isWideScreen = ref(window.innerWidth >= 64 * 16); // 64rem in pixels
+      const isFixed = ref(false);
   
       const toggleMenu = () => {
         isMenuVisible.value = !isMenuVisible.value;
@@ -35,18 +36,25 @@
         isWideScreen.value = window.innerWidth >= 64 * 16;
       };
   
+      const handleScroll = () => {
+        isFixed.value = window.scrollY > 0;
+      };
+  
       onMounted(() => {
         window.addEventListener('resize', checkScreenWidth);
+        window.addEventListener('scroll', handleScroll);
       });
   
       onUnmounted(() => {
         window.removeEventListener('resize', checkScreenWidth);
+        window.removeEventListener('scroll', handleScroll);
       });
   
       return {
         isMenuVisible,
         isWideScreen,
         toggleMenu,
+        isFixed,
       };
     },
   };
@@ -58,6 +66,17 @@
     background: #EEE5DF;
     width: 100%;
     height: 700px;
+    transition: all 0.3s ease;
+  }
+  
+  .nav.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    margin-top: 0;
+    height: auto;
   }
   
   .nav a {
@@ -104,12 +123,14 @@
     width: 30px;
     align-self: flex-end;
   }
-  .logo{
-    
+
+  
+  .logo {
     font-weight: bold;
     color: #333;
     letter-spacing: 8px;
   }
+  
   @media (min-width: 64rem) {
     .menu-button {
       display: none;
@@ -120,6 +141,7 @@
       background: none;
       margin-top: 1rem;
       margin-left: 25rem;
+      background: #FFFFFF;
     }
     .nav a {
       display: inline;
@@ -129,14 +151,13 @@
       font-size: 1rem;
       padding-left: 1rem;
     }
-  
     .flex-desktop {
       display: flex;
     }
   }
   
-  .router-link-active {
-    color: #ad6343;
+  .active-link {
+    color: #ad6343 !important;
   }
   </style>
   
