@@ -1,8 +1,8 @@
 <template>
     <div class="flex-desktop">
-      <header class="header">
+      <header class="header" :class="{ fixed: isFixed }">
         <div class="logo">
-         <router-link class="logo" to="/"> Jobis</router-link>
+          <router-link class="logo" to="/">Jobis</router-link>
         </div>
         <div class="menu-button" @click="toggleMenu">
           <div class="line"></div>
@@ -13,8 +13,8 @@
       <nav class="nav" :class="{ fixed: isFixed }" v-if="isMenuVisible || isWideScreen">
         <router-link to="/" active-class="active-link">Home</router-link>
         <router-link to="/shop" active-class="active-link">Shop</router-link>
-        <router-link to="" active-class="active-link">About</router-link>
-        <router-link to="" active-class="active-link">Contact</router-link>
+        <router-link to="/about" active-class="active-link">About</router-link>
+        <router-link to="/contact" active-class="active-link">Contact</router-link>
       </nav>
     </div>
   </template>
@@ -61,9 +61,29 @@
   </script>
   
   <style lang="scss" scoped>
+  .header {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+    height: 4rem; // Ensuring consistent height
+    transition: all 0.3s ease;
+    z-index: 1001;
+  }
+  
+  .header.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    padding: 0 2rem; // Adjust padding to match height
+    margin: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
   .nav {
     margin-top: 2rem;
-    background: #EEE5DF;
+    background: #FFFFFF;
     width: 100%;
     height: 700px;
     transition: all 0.3s ease;
@@ -71,7 +91,7 @@
   
   .nav.fixed {
     position: fixed;
-    top: 0;
+    top: 4rem; // Adjust based on the height of the fixed header
     left: 0;
     right: 0;
     z-index: 1000;
@@ -88,9 +108,10 @@
     margin-right: 4rem;
   }
   
-  .header {
-    display: flex;
-    margin: 1rem;
+  .header .logo {
+    font-weight: bold;
+    color: #333;
+    letter-spacing: 8px;
   }
   
   .menu-button {
@@ -122,13 +143,6 @@
   .line:last-child {
     width: 30px;
     align-self: flex-end;
-  }
-
-  
-  .logo {
-    font-weight: bold;
-    color: #333;
-    letter-spacing: 8px;
   }
   
   @media (min-width: 64rem) {
