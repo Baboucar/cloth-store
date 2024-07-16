@@ -50,6 +50,7 @@
     padding: 1rem;
     text-align: justify;
     line-height: 1.5;
+    
   }
 
   
@@ -63,6 +64,7 @@
     font-size: 1rem;
     color: #666;
     line-height: 2;
+    margin-top: 2.5rem;
   }
   
   .image-section {
