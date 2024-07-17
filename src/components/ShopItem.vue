@@ -8,14 +8,22 @@
   </template>
   
   <script>
+  import { useCartStore } from '../stores/cart';
+  
   export default {
     props: {
       item: Object,
     },
-    methods: {
-      addToCart() {
-        this.$emit('add-to-cart', this.item);
-      },
+    setup(props) {
+      const cartStore = useCartStore();
+  
+      const addToCart = () => {
+        cartStore.addToCart(props.item);
+      };
+  
+      return {
+        addToCart,
+      };
     },
   };
   </script>
@@ -26,13 +34,13 @@
     height: auto;
     display: block;
     margin: 1rem auto;
-    
   }
-  .shop-item:hover {
-    transition: ease-in .5s;
   
+  .shop-item:hover {
+    transition: ease-in 0.5s;
   }
-  .price{
+  
+  .price {
     color: #AD6342;
   }
   
@@ -46,9 +54,9 @@
     margin-top: 10px;
     transition: background-color 0.3s;
   }
+  
   button:hover {
     background-color: #d55215;
   }
-  
   </style>
   

@@ -11,10 +11,13 @@
         </div>
       </header>
       <nav class="nav" :class="{ fixed: isFixed }" v-if="isMenuVisible || isWideScreen">
-        <router-link to="/" active-class="active-link">Home</router-link>
-        <router-link to="/shop" active-class="active-link">Shop</router-link>
-        <router-link to="/about" active-class="active-link">About</router-link>
-        <router-link to="/contact" active-class="active-link">Contact</router-link>
+        <router-link to="/" active-class="active-link" @click="hideMenu">Home</router-link>
+        <router-link to="/shop" active-class="active-link" @click="hideMenu">Shop</router-link>
+        <router-link to="/about" active-class="active-link" @click="hideMenu">About</router-link>
+        <router-link to="/contact" active-class="active-link" @click="hideMenu">Contact</router-link>
+        <router-link to="/cart" active-class="active-link" class="cart-link" @click="hideMenu">
+          Cart <span v-if="cartItemCount > 0" class="cart-count">{{ cartItemCount }}</span>
+        </router-link>
       </nav>
     </div>
   </template>
@@ -23,6 +26,12 @@
   import { ref, onMounted, onUnmounted } from 'vue';
   
   export default {
+    props: {
+      cartItemCount: {
+        type: Number,
+        required: true,
+      },
+    },
     setup() {
       const isMenuVisible = ref(false);
       const isWideScreen = ref(window.innerWidth >= 64 * 16); // 64rem in pixels
@@ -30,6 +39,12 @@
   
       const toggleMenu = () => {
         isMenuVisible.value = !isMenuVisible.value;
+      };
+  
+      const hideMenu = () => {
+        if (!isWideScreen.value) {
+          isMenuVisible.value = false;
+        }
       };
   
       const checkScreenWidth = () => {
@@ -54,6 +69,7 @@
         isMenuVisible,
         isWideScreen,
         toggleMenu,
+        hideMenu,
         isFixed,
       };
     },
@@ -143,6 +159,19 @@
   .line:last-child {
     width: 30px;
     align-self: flex-end;
+  }
+  
+  .cart-link {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cart-count {
+    background: #ad6343;
+    color: white;
+    border-radius: 50%;
+    padding: 0.2rem 0.5rem;
+    margin-left: 0.5rem;
   }
   
   @media (min-width: 64rem) {

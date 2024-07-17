@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Nav />
+        
         <section class="center">
             <h2 class="head">Contact Us</h2>
             <div class="details">

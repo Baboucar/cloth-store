@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Nav/>
+        
         <section class="head container-90">
             <p class="words">Beautiful. <span class="down">Elegant. Stylish</span></p>
         </section>

@@ -1,13 +1,21 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-
-</script>
-
 <template>
-  
-
-  <RouterView />
+  <div id="app">
+    <Nav />
+    <router-view/>
+  </div>
 </template>
 
-<style scoped>
+<script>
+import Nav from './components/Nav.vue'
+
+export default {
+  name: 'App',
+  components: {
+    Nav
+  }
+}
+</script>
+
+<style>
+/* Add any styles here */
 </style>

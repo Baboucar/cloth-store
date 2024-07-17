@@ -1,12 +1,12 @@
 <template>
-    <div class="shopping-cart">
-      <h2>Shopping Cart</h2>
+    <div class="cart-page">
+      <h2>Your Cart</h2>
       <ul>
         <li v-for="item in cartItems" :key="item.id">
           {{ item.name }} - ${{ item.price }}
         </li>
       </ul>
-      <button @click="shareOnWhatsApp">Ask Us</button>
+      <button @click="checkout">Checkout</button>
     </div>
   </template>
   
@@ -19,30 +19,29 @@
       const cartStore = useCartStore();
       const cartItems = computed(() => cartStore.getCartItems);
   
-      const shareOnWhatsApp = () => {
-        const message = cartItems.value.map(item => `${item.name} - $${item.price}`).join('\n');
-        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
+      const checkout = () => {
+        const items = cartItems.value.map(item => `${item.name} - $${item.price}`).join('\n');
+        const message = `Order Details:\n${items}`;
+        const whatsappURL = `https://wa.me/1234567890?text=${encodeURIComponent(message)}`;
+        window.open(whatsappURL, '_blank');
       };
   
       return {
         cartItems,
-        shareOnWhatsApp,
+        checkout,
       };
     },
   };
   </script>
   
   <style scoped>
-  .shopping-cart {
+  .cart-page {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
     border: 1px solid #ddd;
     border-radius: 10px;
-    padding: 20px;
-    margin: 10px;
-    text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 50%;
-    margin: 1rem auto;
   }
   ul {
     list-style: none;
@@ -63,12 +62,7 @@
     transition: background-color 0.3s;
   }
   button:hover {
-    background-color: #0056b3;
-  }
-  @media (max-width: 768px) {
-    .shopping-cart {
-      width: 50%;
-    }
+    background-color: #d55215;
   }
   </style>
   

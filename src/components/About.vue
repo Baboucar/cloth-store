@@ -1,5 +1,5 @@
 <template>
-    <Nav/>
+    
     <div>
     <div class="about-container">
       <div class="text-section">
