@@ -157,14 +157,17 @@
     background: #ad6343;
     color: white;
     border-radius: 50%;
- 
     position: absolute;
     top: -13px;
     right: -16px;
     margin-right: 5rem;
     font-size: 0.5rem;
-   
     padding: 0.4rem;
+    height: 15px;
+    width: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .menu-button {
