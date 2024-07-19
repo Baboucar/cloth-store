@@ -11,7 +11,7 @@
         />
       </div>
       <div>
-        <ShoppingCart :cartItems="cartItems" />
+        <!-- <ShoppingCart :cartItems="cartItems" /> -->
       </div>
       <Footer/>
     </div>
