@@ -18,7 +18,8 @@
                     <div class="text-box">
                         <h2>Modern Fashion</h2>
                         <p>I'm a paragraph. Click here to add your own text and edit me. I’m a great place for you to tell a story and let your users know a little more about you.</p>
-                        <button>Learn More</button>
+                        <!-- <button>Learn More</button> -->
+                        <router-link to="/about" class="button">Learn More</router-link>
                     </div>
                 </div>
             </div>
@@ -132,6 +133,7 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
+    color: #000000;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -142,15 +144,16 @@ export default {
 .text-box p {
     font-size: 16px;
 }
-.text-box button {
-    margin-top: 10px;
+.text-box .button {
+    display: inline-block;
+    margin-top: .7rem;
     padding: 10px 20px;
-    background-color: #8b5c3e;
+    background-color: #ad6343;
     color: white;
     border: none;
     cursor: pointer;
 }
-.text-box button:hover {
+.text-box .button:hover {
     background-color: #724a32;
 }
 @media (max-width: 768px) {
@@ -190,6 +193,10 @@ img{
     align-items: center;
     justify-content: center;
     width: 9rem;
+
+    &:hover{
+        background: #724a32;
+    }
 }
 .slider {
     display: flex;

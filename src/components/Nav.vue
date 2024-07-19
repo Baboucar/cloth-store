@@ -231,6 +231,7 @@
   
   .active-link {
     color: #ad6343 !important;
+    font-weight: bold;
   }
   </style>
   
