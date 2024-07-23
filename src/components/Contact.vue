@@ -6,27 +6,30 @@
             <div class="details">
                 <div class="detail">
                     <h3 class="title">Customer Service</h3>
-                    <p><a class="telephone" href="tel:+1234567890">+1 (234) 567-890</a></p>
-                    <p> <a href="mailto:example@example.com">example@example.com</a></p>
+                    <p><a class="telephone" href="tel:+1234567890">+2202109401</a></p>
+                    <p><a class="telephone" href="tel:+2203015362"> +2203015362</a></p>
+                    <p><a class="telephone" href=" +2203793313">+2203793313</a></p>
+
+                    
+
+                    <p> <a href="mailto:jobejimba@gmail.com">jobejimba@gmail.com</a></p>
 
                 </div>
 
                 <div class="detail">
                     <h3 class="title">Visit Our Shops</h3>
-                    <p>500 Terry Francine Street
+                    <p>C8Q9+H4 Serrekunda
                         <br>
-                        San Francisco, CA 94158
+                       Craft Market
                     </p>
 
                 </div>
                 <div class="detail">
                     <h3 class="title">Opening hours</h3>
                     <p>
-                        Mon. - Fri. 8am - 8pm
+                        Mon. - Sun. 8am - 8pm
                         <br>
-                        Saturday. 9am - 7pm​
-                        <br>
-                        Sunday. 9am - 8pm
+                    
                     </p>
                 </div>
      
@@ -49,7 +52,7 @@
             
         </section>
         <div>
-            <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3880.5688721139077!2d-16.684750724507328!3d13.438992104458052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec29980ad74f503%3A0xc423fbb4a6c1ee41!2sSerekunda%20Market!5e0!3m2!1sen!2sgm!4v1721161125733!5m2!1sen!2sgm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3880.568956554351!2d-16.68475072444668!3d13.438986886920995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec29980ad74f503%3A0xc423fbb4a6c1ee41!2sSerekunda%20Market!5e0!3m2!1sen!2sgm!4v1721666875899!5m2!1sen!2sgm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <Footer/>
     </div>
